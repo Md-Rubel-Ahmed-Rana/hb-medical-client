@@ -13,7 +13,6 @@ const DashboardLayout = () => {
                     <SideBar />
                 </div>
                 <div className='w-5/6'>
-                    <h2 className="text-4xl text-center">Welcome to Dashboard</h2>
                     <Outlet />
                 </div>
             </div>

@@ -79,7 +79,7 @@ export default function App() {
             <br />
 
             <button className="w-full p-2 rounded bg-blue-700 text-white" type="submit">Confirm Book</button>
-    </form>
+        </form>
     </div>
   );
 }
