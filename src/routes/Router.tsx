@@ -1,5 +1,7 @@
 
 import { createBrowserRouter } from "react-router-dom";
+import AddDoctor from "../Dashboard/AddDoctor/AddDoctor";
+import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import Appointment from "../Pages/Appointment/Appointment";
 import Home from "../Pages/Home/Home/Home";
@@ -28,7 +30,17 @@ const router = createBrowserRouter([
                 element: <Appointment />
             }
         ]
-    } 
+    },
+    {
+        path: "/dashboard",
+        element: <DashboardLayout />,
+        children: [
+            {
+                path: "/dashboard",
+                element: <AddDoctor />
+            }
+        ]
+    }
 ])
 
 export default router
