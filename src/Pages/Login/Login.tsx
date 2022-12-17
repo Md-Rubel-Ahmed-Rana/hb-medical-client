@@ -1,7 +1,10 @@
-import React, {FormEvent, useState } from 'react';
+import React, {FormEvent, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
+    const {user} = useContext(AuthContext);
+    console.log(user);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
 
