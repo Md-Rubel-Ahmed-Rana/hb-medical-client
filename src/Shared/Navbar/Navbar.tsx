@@ -14,10 +14,11 @@ const Navbar = () => {
             </div>
             <div>
                 <ul className='flex gap-10'>
-                <li>Home</li>
-                <li>Blogs</li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/appointment">Appointment</Link></li>
+                <li><Link to="/services">Services</Link></li>
                 {
-                    user ?<li><Link to="/login">Login</Link></li> : <li><Link to="/register">Register</Link></li>
+                    user ? <li><Link to="/login">Login</Link></li> : <li><Link to="/register">Register</Link></li>
                 }
                 
             </ul>

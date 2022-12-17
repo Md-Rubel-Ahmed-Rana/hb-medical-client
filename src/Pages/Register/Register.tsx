@@ -7,7 +7,7 @@ const Register = () => {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("");
-
+    console.log(name);
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         createUser(email, password)
