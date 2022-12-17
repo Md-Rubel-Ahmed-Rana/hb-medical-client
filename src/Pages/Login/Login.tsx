@@ -1,17 +1,26 @@
-import React from 'react';
+import React, {FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("")
+
+    const handleLogin = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        const user = {email, password}
+        console.log(user);
+    }
+
     return (
         <div className="lg:w-1/2 bg-slate-100 mx-auto my-20 p-10 rounded">
-        <form>
+        <form onSubmit={handleLogin}>
             <div className="mb-5">
                 <label className="block">Email</label>
-                <input type="text" placeholder="email" className="w-full p-2" />
+                <input onChange={(e) => setEmail(e.target.value)} type="email" name="email" placeholder="email" className="w-full p-2" />
             </div>
             <div className="mb-5">
                 <label className="block">Password</label>
-                <input type="text" placeholder="password" className="w-full p-2" />
+                <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="password" className="w-full p-2" />
             </div>
             <button type='submit' className="bg-blue-700 w-full px-10 py-2 rounded text-center text-white">Login</button>
         </form>
