@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from "../../images/logo.jpg"
 
 const Navbar = () => {
@@ -12,7 +13,7 @@ const Navbar = () => {
                 <ul className='flex gap-10'>
                 <li>Home</li>
                 <li>Blogs</li>
-                <li>Login</li>
+                <li><Link to="/login">Login</Link></li>
             </ul>
             </div>
         </div>
