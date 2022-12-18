@@ -5,7 +5,6 @@ import logo from "../../images/logo.jpg"
 
 const Navbar = () => {
     const {user} = useContext(AuthContext);
-    console.log(user);
     return (
         <div className="px-20 bg-gray-200 flex items-center justify-between py-3">
             <div className='flex items-center gap-4'>
