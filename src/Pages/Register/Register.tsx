@@ -1,16 +1,20 @@
 import React, { FormEvent, useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import swal from 'sweetalert';
 
 const Register = () => {
     const {createUser} = useContext(AuthContext);
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("");
+    const navigate = useNavigate()
     console.log(name);
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         createUser(email, password)
+        swal("Done", "Account created successfully", "success");
+        navigate("/")
     }
 
     return (

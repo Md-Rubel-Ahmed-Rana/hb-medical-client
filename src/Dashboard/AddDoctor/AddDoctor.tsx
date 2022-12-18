@@ -1,4 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import swal from "sweetalert"
 
 type Inputs = {
   doctorName: string,
@@ -12,6 +13,7 @@ type Inputs = {
 function AddDoctor() {
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = data => {
+    swal("Good Job!", "New Doctor Added", "success")
     console.log(data);
   }
 
@@ -47,6 +49,10 @@ function AddDoctor() {
                 <br />
 
                 <p>Email</p>
+                <input className="w-full p-2 rounded bg-white" {...register("email" ,{ required: true })} />
+                <br />
+                <br />
+                <p>Upload Photo</p>
                 <input className="w-full p-2 rounded bg-white" {...register("email" ,{ required: true })} />
                 <br />
                 <br />

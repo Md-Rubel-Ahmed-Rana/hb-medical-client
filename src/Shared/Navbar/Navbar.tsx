@@ -18,9 +18,15 @@ const Navbar = () => {
                 <li><Link to="/appointment">Appointment</Link></li>
                 <li><Link to="/services">Services</Link></li>
                 {
-                    user ? <li><Link to="/login">Login</Link></li> : <li><Link to="/register">Register</Link></li>
+                    user && <li><Link to="/dashboard">Dashboard</Link></li>
                 }
-                
+                {
+                    user ? <li><Link to="/">Logout</Link></li> :
+                    <>
+                    <li><Link to="/register">Register</Link></li>
+                    <li><Link to="/login">Login</Link></li>
+                    </> 
+                }
             </ul>
             </div>
         </div>

@@ -1,17 +1,17 @@
 import React, {FormEvent, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import swal from 'sweetalert';
 
 const Login = () => {
-    const {user} = useContext(AuthContext);
-    console.log(user);
+    const {userLogin} = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
 
     const handleLogin = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        const user = {email, password}
-        console.log(user);
+        userLogin(email, password);
+        swal("Great!", "Logged in successfully", "success")
     }
 
     return (
