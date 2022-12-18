@@ -83,6 +83,7 @@ function AddDoctor() {
                 <br />
                 <br />
 
+                <p>Gender</p>
                 <select className="w-full p-2 rounded"  {...register("gender" ,{ required: true })}>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>

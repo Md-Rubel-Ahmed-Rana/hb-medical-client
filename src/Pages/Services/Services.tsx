@@ -7,7 +7,7 @@ import digitalXRay from "../../images/digital-x-ray.png"
 
 const Services = () => {
     return (
-        <div className='grid grid-cols-5 gap-10 my-20 px-10 text-center'>
+        <div className='grid lg:grid-cols-3 gap-10 my-20 px-10 text-center'>
             <div className='shadow-xl p-4 rounded-md'>
                 <img className='h-40 w-full' src={pathology} alt="" />
                 <h3 className="text-2xl">Pathology</h3>
