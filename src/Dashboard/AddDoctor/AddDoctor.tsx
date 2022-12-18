@@ -8,7 +8,8 @@ type Inputs = {
   gender: string,
   phoneNumber: string,
   email: string
-  image: string
+  image: string,
+  department: string
 };
 
 
@@ -36,7 +37,8 @@ function AddDoctor() {
         gender: data.gender,
         phoneNumber: data.phoneNumber,
         email: data.email,
-        image: imageUrl
+        image: imageUrl,
+        department: data.department
       }
      console.log(newDoctor);
       swal("Good Job!", "New Doctor Added", "success")
@@ -53,6 +55,21 @@ function AddDoctor() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <p>Doctor Name</p>
                 <input className="w-full p-2 rounded" {...register("doctorName" ,{ required: true })} />
+                <br />
+                <br />
+
+                <p>Department</p>
+                <select className="w-full p-2 rounded"  {...register("department" ,{ required: true })}>
+                <option value="Obstretrics & Gynecology">Obstretrics & Gynecology</option>
+                <option value="Heart Disease Medicine">Heart Disease Medicine</option>
+                <option value="Chest Disease">Chest Disease</option>
+                <option value="Children">Children</option>
+                <option value="Sonology">Sonology</option>
+                <option value="Dental">Dental</option>
+                <option value="Pathology">Pathology</option>
+                <option value="Orthopedics">Orthopedics</option>
+                <option value="Rediology & Imaging">Orthopedics</option>
+            </select>
                 <br />
                 <br />
 
