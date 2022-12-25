@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 type Inputs = {
@@ -13,10 +14,12 @@ type Inputs = {
   message: string,
 };
 
-export default function App() {
+export default function Appointment() {
   const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = data => {
-    console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    axios.post("http://localhost:5000/appointment", data)
+    .then((result) => console.log(result))
+    .catch((err) => console.log(err))
   };
 
 
