@@ -9,7 +9,8 @@ type DoctorTypes = {
     gender: string,
     image: string,
     joiningDate: string,
-    phoneNumber: string
+    phoneNumber: string,
+    _id: string
 }
 
 const Doctors = () => {
@@ -22,14 +23,14 @@ const Doctors = () => {
         .catch((err) => console.log(err))
     }, [])
 
-    // const handleDelete  = (id: string) => {
-    //     axios.delete(`http://localhost:5000/appointment/${id}`)
-    //     .then(() => {
-    //         const remaining = doctors.filter((patient: DoctorTypes) => patient._id !== id);
-    //         setDoctors(remaining)
-    //     })
-    //     .catch((err) => console.log(err))
-    // }
+    const handleDelete  = (id: string) => {
+        axios.delete(`http://localhost:5000/doctors/${id}`)
+        .then(() => {
+            const remaining = doctors.filter((patient: DoctorTypes) => patient._id !== id);
+            setDoctors(remaining)
+        })
+        .catch((err) => console.log(err))
+    }
 
     return (
         <div className='overflow-x-auto'>
@@ -46,7 +47,7 @@ const Doctors = () => {
                 </thead>
                 <tbody>
                     {
-                        doctors.map((doctor: DoctorTypes, index) => <tr className='flex items-center justify-between gap-10  p-2 rounded border mt-2'>
+                        doctors.map((doctor: DoctorTypes, index) => <tr key={index} className='flex items-center justify-between gap-10  p-2 rounded border mt-2'>
                         <td>{index + 1}</td>
                         <td><img className='h-10 w-10 rounded-full' src={doctor.image} alt="" /></td>
                         <td>{doctor.doctorName}</td>
@@ -54,7 +55,7 @@ const Doctors = () => {
                         <td>{doctor.phoneNumber}</td>
                         <td>{doctor.age}</td>
                         <td>{doctor.joiningDate}</td>
-                        <td><button className='bg-red-700 p-2 rounded text-white'>Delete</button></td>
+                        <td><button onClick={() => handleDelete(doctor._id)} className='bg-red-700 p-2 rounded text-white'>Delete</button></td>
                     </tr>)
                     }
                 </tbody>
