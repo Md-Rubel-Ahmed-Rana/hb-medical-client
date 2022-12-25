@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from "axios"
 
 type PatientTypes = {
     patientName: string,
@@ -6,10 +7,12 @@ type PatientTypes = {
     age: string,
     department: string,
     doctorName: string,
+    _id: string
 }
 
 const Patients = () => {
     const [patients, setPatients] = useState([])
+    
     useEffect(() => {
         fetch("http://localhost:5000/appointment")
         .then((res) => res.json())
@@ -17,6 +20,15 @@ const Patients = () => {
         .catch((err) => console.log(err))
     }, [])
 
+    const handleDelete  = (id: string) => {
+        axios.delete(`http://localhost:5000/appointment/${id}`)
+        .then(() => {
+            const remaining = patients.filter((patient: PatientTypes) => patient._id !== id);
+            setPatients(remaining)
+        })
+        .catch((err) => console.log(err))
+    }
+ 
     return (
         <div className='overflow-x-auto'>
             <table className='w-full'>
@@ -38,7 +50,7 @@ const Patients = () => {
                         <td>{patient.age}</td>
                         <td>{patient.department}</td>
                         <td>{patient.doctorName}</td>
-                        <td><button className='bg-red-700 p-2 rounded text-white'>Delete</button></td>
+                        <td><button onClick={() => handleDelete(patient._id)} className='bg-red-700 p-2 rounded text-white'>Delete</button></td>
                     </tr>)
                    }
                 </tbody>
