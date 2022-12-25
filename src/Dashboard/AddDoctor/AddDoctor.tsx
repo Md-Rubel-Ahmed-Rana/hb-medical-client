@@ -1,5 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import swal from "sweetalert"
+import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 type Inputs = {
   doctorName: string,
@@ -16,6 +18,7 @@ type Inputs = {
 
 function AddDoctor() {
   const { register, handleSubmit } = useForm<Inputs>();
+  const navigate = useNavigate()
 
   const onSubmit: SubmitHandler<Inputs> = data => {
     console.log(data);
@@ -41,13 +44,16 @@ function AddDoctor() {
         image: imageUrl,
         department: data.department
       }
-     console.log(newDoctor);
-      swal("Good Job!", "New Doctor Added", "success")
+     // send doctor info to database
+     axios.post("http://localhost:5000/doctors", newDoctor)
+     .then(() => {
+      swal("Good Job!", "New Doctor Added", "success");
+      navigate("/dashboard/doctors")
+     })
+     .catch((err) => console.log(err))
+      
     })
     .catch((err) => console.log(err))
-
-    
-
   }
 
 
