@@ -45,7 +45,7 @@ function AddDoctor() {
         department: data.department
       }
      // send doctor info to database
-     axios.post("http://localhost:5000/doctors", newDoctor)
+     axios.post("https://hb-medical-server.vercel.app/doctors", newDoctor)
      .then(() => {
       swal("Good Job!", "New Doctor Added", "success");
       navigate("/dashboard/doctors")

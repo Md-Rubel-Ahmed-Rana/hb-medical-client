@@ -14,14 +14,14 @@ const Patients = () => {
     const [patients, setPatients] = useState([])
     
     useEffect(() => {
-        fetch("http://localhost:5000/appointment")
+        fetch("https://hb-medical-server.vercel.app/appointment")
         .then((res) => res.json())
         .then((data) => setPatients(data.result))
         .catch((err) => console.log(err))
     }, [])
 
     const handleDelete  = (id: string) => {
-        axios.delete(`http://localhost:5000/appointment/${id}`)
+        axios.delete(`https://hb-medical-server.vercel.app/appointment/${id}`)
         .then(() => {
             const remaining = patients.filter((patient: PatientTypes) => patient._id !== id);
             setPatients(remaining)

@@ -17,7 +17,7 @@ type Inputs = {
 export default function Appointment() {
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    axios.post("http://localhost:5000/appointment", data)
+    axios.post("https://hb-medical-server.vercel.app/appointment", data)
     .then((result) => console.log(result))
     .catch((err) => console.log(err))
   };

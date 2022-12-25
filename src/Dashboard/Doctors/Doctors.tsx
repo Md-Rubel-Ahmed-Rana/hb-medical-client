@@ -17,14 +17,14 @@ const Doctors = () => {
     const [doctors, setDoctors] = useState([])
     
     useEffect(() => {
-        fetch("http://localhost:5000/doctors")
+        fetch("https://hb-medical-server.vercel.app/doctors")
         .then((res) => res.json())
         .then((data) => setDoctors(data.result))
         .catch((err) => console.log(err))
     }, [])
 
     const handleDelete  = (id: string) => {
-        axios.delete(`http://localhost:5000/doctors/${id}`)
+        axios.delete(`https://hb-medical-server.vercel.app/doctors/${id}`)
         .then(() => {
             const remaining = doctors.filter((patient: DoctorTypes) => patient._id !== id);
             setDoctors(remaining)
