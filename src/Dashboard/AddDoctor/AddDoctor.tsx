@@ -18,6 +18,7 @@ function AddDoctor() {
   const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = data => {
+    console.log(data);
     const apiKey = process.env.REACT_APP_IMGBB_KEY
     const image = data.image[0];
     const formaData = new FormData();
@@ -101,7 +102,7 @@ function AddDoctor() {
                 <br />
                 <br />
                 <p>Upload Photo</p>
-                <input className="w-full p-2 rounded bg-white" type="file" {...register("image" ,{ required: true })} />
+                <input className="w-full p-2 rounded bg-white" type="file" {...register("image")} />
                 <br />
                 <br />
 

@@ -34,7 +34,7 @@ export default function App() {
                 <option value="Dental">Dental</option>
                 <option value="Pathology">Pathology</option>
                 <option value="Orthopedics">Orthopedics</option>
-                <option value="Rediology & Imaging">Orthopedics</option>
+                <option value="Rediology & Imaging">Rediology & Imaging</option>
             </select>
             <br />
             <br />

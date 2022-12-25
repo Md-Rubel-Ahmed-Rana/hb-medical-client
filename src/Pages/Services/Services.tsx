@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; 
 import pathology from "../../images/pathology.png"
 import mri from "../../images/mri.png"
 import checkup from "../../images/checkup.png"
