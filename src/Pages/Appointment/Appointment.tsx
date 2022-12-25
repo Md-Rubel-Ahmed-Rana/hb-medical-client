@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 type Inputs = {
   department: string,
@@ -16,10 +18,16 @@ type Inputs = {
 
 export default function Appointment() {
   const { register, handleSubmit } = useForm<Inputs>();
+  const navigate = useNavigate()
+
+
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     axios.post("https://hb-medical-server.vercel.app/appointment", data)
-    .then((result) => console.log(result))
-    .catch((err) => console.log(err))
+    .then(() => {
+      swal("Great!", "Your appointment booked successfully", "success")
+      navigate("/")
+    })
+    .catch((err) => swal("Opps!", `${err.message}`, "error"))
   };
 
 

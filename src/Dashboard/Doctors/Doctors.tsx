@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios"
+import swal from 'sweetalert';
 
 type DoctorTypes = {
     age: string,
@@ -20,7 +21,7 @@ const Doctors = () => {
         fetch("https://hb-medical-server.vercel.app/doctors")
         .then((res) => res.json())
         .then((data) => setDoctors(data.result))
-        .catch((err) => console.log(err))
+        .catch((err) => swal("Opps!", `${err.message}`, "error"))
     }, [])
 
     const handleDelete  = (id: string) => {
@@ -29,7 +30,7 @@ const Doctors = () => {
             const remaining = doctors.filter((patient: DoctorTypes) => patient._id !== id);
             setDoctors(remaining)
         })
-        .catch((err) => console.log(err))
+        .catch((err) => swal("Opps!", `${err.message}`, "error"))
     }
 
     return (

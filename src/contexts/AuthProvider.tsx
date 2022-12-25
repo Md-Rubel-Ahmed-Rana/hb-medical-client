@@ -32,7 +32,7 @@ const AuthProvider = ({children}: authProps) => {
             swal("Done", "Account created successfully", "success");
             navigate("/")
         })
-        .catch((err) => swal("Opps!", `${err}`, "error"))
+        .catch((err) => swal("Opps!", `${err.message}`, "error"))
     }
 
     const userLogin = (email: string, password: string, navigate: any) => {
@@ -42,7 +42,7 @@ const AuthProvider = ({children}: authProps) => {
             swal("Great!", "Logged in successfully", "success");
             navigate("/")
         })
-        .catch((err) => swal("Opps!", `${err}`, "error"))
+        .catch((err) => swal("Opps!", `${err.message}`, "error"))
     }
 
     const logout = () => {

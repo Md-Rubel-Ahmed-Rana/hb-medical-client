@@ -50,10 +50,10 @@ function AddDoctor() {
       swal("Good Job!", "New Doctor Added", "success");
       navigate("/dashboard/doctors")
      })
-     .catch((err) => console.log(err))
+     .catch((err) => swal("Opps!", `${err.message}`, "error"))
       
     })
-    .catch((err) => console.log(err))
+    .catch((err) => swal("Opps!", `${err.message}`, "error"))
   }
 
 
